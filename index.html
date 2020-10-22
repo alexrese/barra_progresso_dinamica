@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<style>
+    #myProgress {
+        width: 70%;
+        background-color: #ddd;   
+        
+    }
+
+    #myBar {
+        width: 0%;
+        height: 30px;
+        background-color: #0ED1E8;
+        text-align: center;
+        line-height: 30px;
+        color: white;
+    }
+</style>
+
+<body onload="move()">
+
+    <h1>Barra de progresso em JavaScript</h1>
+
+    <div id="myProgress">
+        <div id="myBar">0%</div>
+    </div>
+
+    <br>
+
+    <script>
+
+        var i = 0;
+        function move() {
+            if (i == 0) {
+                i = 1;
+                var elem = document.getElementById("myBar");
+                var width = 10;
+                var id = setInterval(frame, 25);
+                function frame() {
+                    if (width >= 70) {
+                        clearInterval(id);
+                        i = 0;
+                    } else {
+                        width++;
+                        elem.style.width = width + "%";
+                        elem.innerHTML = width + "%";
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
